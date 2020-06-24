@@ -1,0 +1,51 @@
+<odoo>
+    <record id="assignmentdetails_view_form" model="ir.ui.view">
+        <field name="name">assignmentdetails.form</field>
+        <field name="model">assignment.details</field>
+        <field name="arch" type="xml">
+            <form string="Assignment Details Information">
+                <sheet>
+                    <group col="4" colspan="2">
+                        <field name="name"/>
+                        <field name="std_id" options="{'no_create_edit':True , 'no_create':True, 'no_open':True}"/>
+                        <field name="sub_id" options="{'no_create_edit':True , 'no_create':True, 'no_open':True}"/>    
+                        <field name="assignmenttype_id" options="{'no_create_edit':True , 'no_create':True, 'no_open':True}"/>
+                        <field name="teacher_id" options="{'no_create_edit':True , 'no_create':True, 'no_open':True}"/>
+                     </group> 
+
+                <notebook>
+                        <page name="basic_information" string="Basic Information">
+                                <form>
+                                    <group col="4" colspan="2">
+                                        <field name="issued_date"/>
+                                        <field name="submission_date"/>
+                                        <field name ="assignment_marks"/>
+                                        <field name="description"/>
+                                    </group>
+                                </form>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="assignmenttype_view_tree" model="ir.ui.view">
+        <field name="name">assignmenttype.tree</field>
+        <field name="model">assignment.details</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="std_id" />
+                <field name="sub_id"/>    
+                <field name="assignmenttype_id"/>
+                <field name="teacher_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="assignmentdetails_action" model="ir.actions.act_window">
+        <field name="name">assignmentdetails</field>
+        <field name="res_model">assignment.details</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem action="assignmentdetails_action" id="assignmentdetails_menu" name="Assignment Details" parent="school_managment_new.student_parent_menu" />
+</odoo>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <report 
-        id="report_teacher_information"
+            id="report_teacher_information"
         string="Teacher Information"
         model="teacher.teacher"
         report_type="qweb-pdf"

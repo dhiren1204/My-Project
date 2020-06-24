@@ -1,0 +1,55 @@
+<odoo>
+	<record id="teacherleave_view_form" model="ir.ui.view">
+		<field name="name">teacherleave.form</field>
+		<field name="model">teacher.leave</field>
+		<field name="arch" type="xml">
+			<form string="Teacher Leave Confrmation">
+				<sheet>
+					<group col="4">
+						<field name="teacher_id"/>
+						<field name="date"/>
+					</group>
+					<notebook>
+						<page name="line_page" string="order_line">
+							<field name="line_ids">
+								<tree editable="bottom">
+									<field name="leave_id"/>
+									<field name="days"/>
+									<field name ="from_date"/>
+									<field name="to_date"/>
+								</tree>
+								<form>
+									<group>
+										<field name="leave_id"/>
+										<field name="days"/>
+										<field name ="from_date"/>
+										<field name="to_date"/>
+									</group>
+								</form>
+							</field>
+						</page>
+						<!-- <page name="line_page2" string="order_line2">
+						</page> -->
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	 <record id="teacherleave_view_tree" model="ir.ui.view">
+        <field name="name">teacherleave.tree</field>
+        <field name="model">teacher.leave</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="teacher_id" />
+                <field name="date" />
+            </tree>
+        </field>
+    </record>
+    <record id="teacherleave_action" model="ir.actions.act_window">
+        <field name="name">TeacherLeave</field>
+        <field name="res_model">teacher.leave</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem action="teacherleave_action" id="teacherleave_menu" name="Teachers Leave Details" parent="school_managment_new.student_parent_menu"/>
+</odoo>

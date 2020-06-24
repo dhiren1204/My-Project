@@ -1,0 +1,40 @@
+<odoo>
+    <record id="studentdoc_view_form" model="ir.ui.view">
+        <field name="name">studentdoc.form</field>
+        <field name="model">student.doc</field>
+        <field name="arch" type="xml">
+            <form string="Student Document Information">
+                <sheet>
+                    <group>
+                        <field name="name" />    
+                     </group> 
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="studentdoc_view_tree" model="ir.ui.view">
+        <field name="name">studentdoc.tree</field>
+        <field name="model">student.doc</field>
+        <field name="arch" type="xml">
+            <tree>
+               <field name="name" string="Document name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="studentdoc_view_search" model="ir.ui.view">
+    	<field name="name">studemtdoc.search</field>
+    	<field name="model">student.doc</field>
+    	<field name="arch" type="xml">
+    		<search>
+    			<field name="name" />
+    		</search>
+    	</field>
+    </record>
+    <record id="studentdoc_action" model="ir.actions.act_window">
+        <field name="name">studentdoc</field>
+        <field name="res_model">student.doc</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+    
+    <menuitem action="studentdoc_action" id="studentdoc_menu" name="Student Doc" parent="school_managment_new.student_parent_menu" />
+</odoo>

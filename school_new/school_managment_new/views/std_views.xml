@@ -1,0 +1,49 @@
+<odoo>
+	<record id="std_view_form" model="ir.ui.view">
+		<field name="name">std.form</field>
+		<field name="model">std.std</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="std"/>
+					</group>
+					<notebook>
+                        <page name="line_page" string="StdWiseSubject_line">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="sub_id" options="{'no_create_edit':True , 'no_create':True, 'no_open':True}"/>
+                                    <field name="max_marks"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="sub_id"/>
+                                        <field name="max_marks"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="std_view_tree" model="ir.ui.view">
+		<field name="name">std.tree</field>
+		<field name="model">std.std</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="std"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="std_action" model="ir.actions.act_window">
+        <field name="name">std</field>
+        <field name="res_model">std.std</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem action="std_action" id="std_menu" name="Std" parent="school_managment_new.student_parent_menu" />
+</odoo>

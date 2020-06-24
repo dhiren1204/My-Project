@@ -1,1 +1,12 @@
 from .import student
+from .import hobbies
+from .import subject
+from .import teacher
+from .import leave
+from .import school
+from .import std
+from .import feesstructure
+from .import feescollection
+from .import studentdoc
+from .import result
+from .import assignment
