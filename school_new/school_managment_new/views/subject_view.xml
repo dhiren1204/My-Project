@@ -1,0 +1,35 @@
+<odoo>
+	<record id="subject_form_view" model="ir.ui.view">
+		<field name="name">subject.form</field>
+		<field name="model">subject.subject</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="subject"/>
+						<field name="max_mark"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="subject_tree_view" model="ir.ui.view">
+		<field name="name">subject.tree</field>
+		<field name="model">subject.subject</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="subject"/>
+				<field name="max_mark"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_name_subject" model="ir.actions.act_window">
+        <field name="name">subject</field>
+        <field name="res_model">subject.subject</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem action="action_name_subject" id="subject_menu" name="Subject" parent="school_managment_new.student_parent_menu" />
+</odoo>

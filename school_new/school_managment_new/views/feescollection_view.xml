@@ -1,0 +1,46 @@
+<odoo>
+	<record id="feescollection_form_view" model="ir.ui.view">
+		<field name="name">feescollection.form</field>
+		<field name="model">fees.collection</field>
+		<field name="arch" type="xml">
+			<form>
+				<header>
+					<button name="create_sale_order" string="Create Sale order" type="object" class="oe_highlight"/>
+				</header>
+				<sheet>
+					<div class="oe_button_box" name="button_box">
+						<button name="sale_order_open" type="object" class="oe_start_button" string="Sales" icon="fa-usd">
+							<field name="sale_count"/>
+						</button>	
+
+					</div>
+					<group>
+						<field name="student_id" options="{'no_create_edit':True , 'no_create':True, 'no_open':True}"/>
+						<field name ="std"/>
+						<field name="student_fees"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="feescollection_tree_view" model="ir.ui.view">
+		<field name="name">feescollection.tree</field>
+		<field name="model">fees.collection</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="student_id"/>
+				<field name ="std"/>
+				<field name="student_fees"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_name_feescollection" model="ir.actions.act_window">
+        <field name="name">feescollection</field>
+        <field name="res_model">fees.collection</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem action="action_name_feescollection" id="feescollection_menu" name="Fees Collection" parent="school_managment_new.student_parent_menu"/>
+</odoo>

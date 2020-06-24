@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report 
+        id="report_teacher_information"
+        string="Teacher Information"
+        model="teacher.teacher"
+        report_type="qweb-pdf"
+        name="school_managment_new.report_teacher"
+        file="school_managment_new.report_teacher"/>
+
+	<template id="report_teacher">
+		<t t-call="web.html_container">
+			<t t-foreach="docs" t-as="o">
+				<t t-call="web.external_layout">
+					<div class="page">
+						<br></br>
+                        <h2>Teacher Information</h2>
+                        <div class="row mt32 mb32">
+                            <div class="col-2">
+                                <strong>Name:</strong>
+                                <p t-field="o.name"/>
+                            </div>
+                            <div class="col-2">
+                                <strong>DOB:</strong>
+                                <p t-field="o.dob"/>
+                            </div>
+                            <div class="col-2">
+                                <strong>Salary:</strong>
+                                <p t-field="o.salary"/>
+                            </div>
+                        </div>
+                    </div>
+				</t>
+			</t>
+		</t>
+	</template>
+</odoo>

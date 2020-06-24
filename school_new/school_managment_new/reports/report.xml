@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<report 
+		id="report_student_information"
+		string="Student Information"
+		model="student.student"
+		report_type="qweb-pdf"
+		name="school_managment_new.report_student"
+		file="school_managment_new.report_student"/>
+
+	<!-- 
+	<report 
+		id="report_teacher_information_xlsx"
+		string="Teacher Information Excel"
+		model="teacher.teacher"
+		report_type="xlsx"
+		name="school_managment_new.report_teacher_xlsx"
+		file="school_managment_new.report_teacher_xlsx"/> -->
+
+</odoo>

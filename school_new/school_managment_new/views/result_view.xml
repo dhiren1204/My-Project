@@ -1,0 +1,64 @@
+<odoo>
+    <record id="result_form_view" model="ir.ui.view">
+        <field name="name">result.form</field>
+        <field name="model">result.result</field>
+        <field name="arch" type="xml">
+            <form string="Result Informatiom">
+                <header>
+                    <button name="auto_fill_subject" string="Auto Fill Subject" type="object" class="oe_highlight" attrs="{'invisible':[('student_std_id','=',False)]}"/>   
+                    <button name="create_result" string="Print Result" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="student_id" options="{'no_create_edit':True , 'no_create':True, 'no_open':True}" required="1" /> 
+                        <field name="student_std_id" readonly="1" force_save="1" />    
+                     </group> 
+                     <notebook>
+                        <page name="line_page" string="Mark_Line">
+                            <field name="mark_line_ids" force_save="1">
+                                <tree editable="bottom" delete="false" create="0"> 
+                                    <field name="sub_id" options="{'no_create_edit':True , 'no_create':True, 'no_open':True}" readonly="1" force_save="1"/>
+                                    <field name="max_marks" readonly="1" force_save="1" sum="Maximum Marks"/>
+                                    <field name ="rec_marks" sum="Received Marks"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="sub_id" readonly="1"/>
+                                        <field name="max_marks" readonly="1"/>
+                                        <field name ="rec_marks"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group>
+                        <field name="total_marks"/>
+                        <field name="total_received_marks"/>
+                        <field name="percentage"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="result_tree_view" model="ir.ui.view">
+        <field name="name">result.tree</field>
+
+        <field name="model">result.result</field>
+        <field name="arch" type="xml">
+            <tree>
+               <field name="student_id"/>
+               <field name="student_std_id"/>  
+               <field name="total_marks"/>
+               <field name="total_received_marks"/>
+               <field name="percentage"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_name_result" model="ir.actions.act_window">
+        <field name="name">Result</field>
+        <field name="res_model">result.result</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem action="action_name_result" id="result_menu" name="Result" parent="school_managment_new.student_menu"/>
+</odoo>

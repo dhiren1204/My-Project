@@ -1,0 +1,33 @@
+<odoo>
+    <record id="feesstructure_form_view" model="ir.ui.view">
+        <field name="name">feesstructure.form</field>
+        <field name="model">fees.structure</field>
+        <field name="arch" type="xml">
+            <form string="Std Wise Fees Information">
+                <sheet>
+                    <group>
+                        <field name="std_id" />    
+                        <field name="fees"/>
+                     </group> 
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="feesstructure_tree_view" model="ir.ui.view">
+        <field name="name">feesstructure.tree</field>
+        <field name="model">fees.structure</field>
+        <field name="arch" type="xml">
+            <tree>
+               <field name="std_id" />    
+                <field name="fees"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_name_feesstructure" model="ir.actions.act_window">
+        <field name="name">Feesstructure</field>
+        <field name="res_model">fees.structure</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem action="action_name_feesstructure" id="feesstructure_menu" name="Fees Stucture" parent="school_managment_new.student_parent_menu" />
+</odoo>

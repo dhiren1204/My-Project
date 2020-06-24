@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="school_fees" model="product.product">
+            <field name="name">School Fees</field>
+            <field name="student_fees">1000</field>
+            <field name="type">service</field>
+            <field name="categ_id" ref="product.cat_expense"/>
+            <field name="default_code">EXP_FEES</field>
+        </record>
+    </data>
+
+    <data>
+        <record id="computer_fees" model="product.product">
+            <field name="name">Computer Fees</field>
+            <field name="student_fees">2000</field>
+            <field name="type">service</field>
+            <field name="categ_id" ref="product.cat_expense"/>
+            <field name="default_code">EXP_FEES</field>
+        </record>
+    </data>
+
+    <data>
+        <record id="library_fees" model="product.product">
+            <field name="name">Library Fees </field>
+            <field name="default_code">EXP_FEES</field>
+        </record>
+    </data>
+
+</odoo>

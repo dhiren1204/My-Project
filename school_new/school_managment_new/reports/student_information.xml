@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- for test created custome template -->
+	<template id="my_title" name="My title">
+      <h1>This is an HTML block</h1>
+      <h2 class="lead">And this is a subtitle</h2>
+      <div class="heading">
+        <div>
+            <table class="table table-sm">
+                <tr>
+                    <td> 1 </td>
+                    <td> 2 </td>
+                    <td> 3 </td>
+                </tr>
+                <tr>
+                    <td> A </td>
+                    <td> B </td>
+                    <td> C </td>
+                </tr>
+            </table>
+        </div>
+      </div>
+    </template>
+
+<!-- Here To Tamplate Call -->
+	<template id="report_student">
+		<t t-call="web.html_container">
+			<t t-foreach="docs" t-as="doc">
+				<t t-call="school_managment_new.my_title">
+					 <!-- Using the Table -->
+					<table class="table table-sm">
+						<tr>
+							<td>FirstName:</td>
+							<td><t t-esc="doc.first_name"/></td>
+						</tr>
+						<tr>
+							<td>MiddleName:</td>
+							<td><t t-esc="doc.middle_name"/></td>
+						</tr>
+						<tr>
+							<td>LastName:</td>
+							<td><t t-esc="doc.last_name"/></td>
+						</tr>
+					 	<tr>
+							<td>MotherName:</td>
+							<td><t t-esc="doc.mother_name"/></td>
+						</tr>
+						<tr>
+							<td>Gender:</td>
+							<td><t t-esc="doc.gender"/></td>
+						</tr>
+						<tr>
+							<td>Date of Birth:</td>
+							<td><t t-esc="doc.dob"/></td>
+						</tr>
+					</table>
+					<!-- Using The Div -->
+					<div class="page">
+                        <h2>Stduent Information</h2>
+
+                        <div class="row mt32 mb32">
+                            <div class="col-2">
+                                <strong>FirstName:</strong>
+                                <p t-field="doc.first_name"/>
+                            </div>
+                            <div class="col-2">
+                                <strong>Middle Name:</strong>
+                                <p t-field="doc.middle_name"/>
+                            </div>
+                            <div class="col-2">
+                                <strong>Last Name:</strong>
+                                <p t-field="doc.last_name"/>
+                            </div>
+                            <div class="col-2">
+                                <strong>Mother Name:</strong>
+                                <p t-field="doc.mother_name"/>
+                            </div>
+                            <div class="col-2">
+                                <strong>Gender</strong>
+                                <p t-field="doc.gender"/>
+                            </div>
+                       </div>
+                    </div>
+				</t>
+			</t>
+		</t>
+	</template>
+</odoo>	

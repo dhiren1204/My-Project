@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="studentdocument_upload_form" model="ir.ui.view">
+		<field name="name">studentdocument.upload.wizard</field>
+		<field name="model">document.upload</field>
+		<field name="arch" type="xml">
+			<form string="Upload Document">
+				<notebook>
+						<page name="line_page" string="order_line">
+							<field name="document_id">
+								<tree editable="bottom">
+									<field name="documentname_id"/>
+									<field name="document"/>
+								</tree>								
+							</field>
+						</page>
+				</notebook>
+				<footer>
+					<button name="student_document_upload" string="Upload" type="object" class="btn-primary"/>
+					<button string="Cancel" class="btn-secondary" special="cancel"/>
+				</footer>
+			</form>
+		</field>	
+	</record>
+
+	<record id="document_upload_wizard" model="ir.actions.act_window">
+		<field name ="name"> Upload Document</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">document.upload</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="studentdocument_upload_form"/>
+		<field name="target">new</field>
+	</record>
+
+</odoo>

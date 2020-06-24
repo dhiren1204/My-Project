@@ -1,0 +1,26 @@
+<odoo>
+	<record id="create_adobestudent_form" model="ir.ui.view">
+		<field name="name">create.adobestudent.wizard</field>
+		<field name="model">create.adobestudent</field>
+		<field name="arch" type="xml">
+			<form string="Create Adobe Student">
+				<group>
+					<field name="student_id"/>
+				</group>
+				<footer>
+					<button name="create_adobe_student" string="Create" type="object" class="btn-primary"/>
+					<button string="Cancel" class="btn=secondary" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+	
+	<record id="create_adobestudent_wizard" model="ir.actions.act_window">
+		<field name ="name"> Create Adobe Student</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">create.adobestudent</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="create_adobestudent_form"/>
+		<field name="target">new</field>
+	</record>
+</odoo>

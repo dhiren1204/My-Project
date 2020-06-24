@@ -1,0 +1,47 @@
+<odoo>
+<record id="teacher_form_view" model="ir.ui.view">
+<field name="name">teacher.form</field>
+<field name="model">teacher.teacher</field>
+<field name="arch" type="xml">
+	<form>
+		<header>
+			<button name="%(school_managment_new.create_adobestudent_wizard)d" type="action" string="Create Adobe Student" class="oe_highlight"/>
+			<button name="create_exel_report" type="object" string="Print" class="oe_highlight"/> 
+		</header>
+		<sheet>
+			<group>
+				<field name="name"/>
+				<field name="dob"/>
+				<field name="age"/>
+				<field name="salary"/>
+				<field name="Main_subject_id"/>
+				<field name="subject_id" widget="many2many_tags"/>
+				<field name="experience"/>
+				<field name="student_id"/>
+			</group>
+		</sheet> 
+	</form>
+</field>
+</record>
+<record id="teacher_tree_view" model="ir.ui.view">
+		<field name="name">teacher.tree</field>
+		<field name="model">teacher.teacher</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="dob"/>
+				<field name="salary"/>
+				<field name="student_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_name_teacher" model="ir.actions.act_window">
+        <field name="name">Teacher</field>
+        <field name="res_model">teacher.teacher</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem action="action_name_teacher" id="teacher_menu" name="Teacher" parent="school_managment_new.student_parent_menu" />
+   <!--  <menuitem action="create_adobestudent_wizard" id="create_adobestudent" name="Create Adobe Studen`t" parent="school_managment_new.student_parent_menu" /> -->
+</odoo>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report 
+        id="student_result"
+        string="Stduent Result"
+        model="result.result"
+        report_type="qweb-pdf"
+        name="school_managment_new.report_student_result"
+        file="school_managment_new.report_student_result"/>
+
+    
+    <template id="result_heading" name="My title">
+      <h1 align="center">RESULT</h1>
+    </template>    
+
+
+	<template id="report_student_result">
+		<t t-call="web.html_container">
+			<t t-foreach="docs" t-as="o">
+				<t t-call="web.external_layout">
+                    <br></br>
+                    <div>
+                      <h1 align="center"> RESULT </h1>
+                    </div>
+                    <div>
+                        <table class="table table-sm">
+                            <tr>
+                                <td><b>Student Name:</b></td>
+                                <td><t t-esc="o.student_id.first_name"/></td>
+                            </tr>
+                            <tr>
+                                <td><b>Std:</b></td>
+                                <td><t t-esc="o.student_std_id.id"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="table-responsive">          
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Maximum Marks</th>
+                                    <th>Obtained Marks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.mark_line_ids" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.sub_id"/></td>
+                                        <td>
+                                            <span t-field="line.max_marks"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.rec_marks"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <table class="table table-sm">
+                            <tr>
+                                <td><b>Maximum Marks:</b></td>
+                                <td><t t-esc="o.total_marks"/></td>
+                            </tr>
+                            <tr>
+                                <td><b>Obtained Marks:</b></td>
+                                <td><t t-esc="o.total_received_marks"/></td>
+                            </tr>
+                            <tr>
+                                <td><b>Percentage:</b></td>
+                                <td><t t-esc="o.percentage"/></td>
+                            </tr>  
+                        </table>
+                    </div>
+
+                    <div>
+                        <table class="table table-sm">
+                            <tr>
+                                <td><b>Class Teacher Sign:</b></td>
+                                <td>______________________</td>
+                                <td><b> Principal Sign:</b></td>
+                                <td>______________________</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div>
+                        <table class="table table-bordered mb-0" 
+                                style="border: 2px solid  black;">
+                            <tr>
+                                <td class="text-center align-middle" style="height: 6rem;">
+                                    <img alt="Barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(o.student_id or ''), 600, 150)" style="width:100%;height:4rem;"/>
+                                    <span t-field="o.student_id"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+				</t>
+			</t>
+		</t>
+	</template>
+</odoo>
